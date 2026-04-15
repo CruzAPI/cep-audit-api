@@ -11,5 +11,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  mockoon:
+    image: mockoon/cli:latest
+    container_name: cep-audit-mockoon
+    ports:
+      - "8081:3000"
+    volumes:
+      - ./mockoon-cep.json:/data/mockoon-cep.json:ro
+    command: ["-d", "/data/mockoon-cep.json", "-p", "3000", "-l", "0.0.0.0"]
+
 volumes:
   postgres_data:

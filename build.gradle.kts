@@ -42,6 +42,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("com.h2database:h2")
+    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
 }
 
 dependencyManagement {

@@ -1,0 +1,36 @@
+{
+  "uuid": "3a0889c2-55db-4e78-9e32-23f2b604bc61",
+  "lastMigration": 32,
+  "name": "ViaCEP Mock",
+  "port": 3000,
+  "routes": [
+    {
+      "uuid": "c331a90c-d400-4b2a-89a0-d128d5d9c22b",
+      "type": "http",
+      "method": "get",
+      "endpoint": "ws/:cep/json",
+      "responses": [
+        {
+          "uuid": "not-found-response",
+          "body": "{ \"erro\": \"true\" }",
+          "statusCode": 200,
+          "rules": []
+        },
+        {
+          "uuid": "success-response",
+          "body": "{\n  \"cep\": \"01001-000\",\n  \"logradouro\": \"Praça da Sé\",\n  \"complemento\": \"lado ímpar\",\n  \"bairro\": \"Sé\",\n  \"localidade\": \"São Paulo\",\n  \"uf\": \"SP\",\n  \"ibge\": \"3550308\",\n  \"gia\": \"1004\",\n  \"ddd\": \"11\",\n  \"siafi\": \"7107\"\n}",
+          "statusCode": 200,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "cep",
+              "value": "01001000",
+              "operator": "equals"
+            }
+          ]
+        }
+      ],
+      "enabled": true
+    }
+  ]
+}
